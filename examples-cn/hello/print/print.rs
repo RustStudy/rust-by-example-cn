@@ -1,41 +1,39 @@
 fn main() {
-    // In general, the `{}` will be automatically replaced with any
-    // arguments. These will be stringified.
+    // 一般来说， `{}` 会自动替换任何参数。
+
     println!("{} days", 31);
 
-    // Without a suffix, 31 becomes an i32. You can change what type 31 is,
-    // with a suffix.
+    // 没有后缀，31默认是i32。你可以使用后缀来改变31的类型。
 
-    // There are various optional patterns this works with. Positional
-    // arguments can be used.
+    // 有多种可选模型。位置参数也可用。
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
 
-    // As can named arguments.
+    // 以及命名参数。
     println!("{subject} {verb} {object}",
              object="the lazy dog",
              subject="the quick brown fox",
              verb="jumps over");
 
-    // Special formatting can be specified after a `:`.
+    // 特殊格式可以在`:`后面指定。
     println!("{} of {:b} people know binary, the other half don't", 1, 2);
 
-    // You can right-align text with a specified width. This will output
-    // "     1". 5 white spaces and a "1".
+    // 你也能通过指定宽度来对文本进行右对齐。
+    // 将会输出 "     1"
+    // "1"前面有5个空格。
     println!("{number:>width$}", number=1, width=6);
 
-    // You can pad numbers with extra zeroes. This will output "000001".
+    // 你也可以填充0,会输出"000001".
     println!("{number:>0width$}", number=1, width=6);
 
-    // It will even check to make sure the correct number of arguments are
-    // used.
+    // 甚至还可以检查参数个数是否正确
     println!("My name is {0}, {1} {0}", "Bond");
-    // FIXME ^ Add the missing argument: "James"
-    
-    // Create a structure which contains an `i32`. Name it `Structure`.
+    // FIXME ^ 添加确实的参数: "James"
+
+    // 创建一个包含了`i32`类型参数的名为 `Structure`的结构体（structure
     struct Structure(i32);
 
-    // However, custom types such as this structure require more complicated
-    // handling. This will not work.
+    // 然后，诸如这样自定义类型的结构体则需要更复杂的处理。
+    // 该行代码将无法执行。
     println!("This struct `{}` won't print...", Structure(3));
-    // FIXME ^ Comment out this line.
+    // FIXME ^ 注释掉这行。
 }

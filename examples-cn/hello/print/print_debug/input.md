@@ -1,37 +1,30 @@
-All types which want to use `std::fmt` formatting `traits` require an
-implementation to be printable. Automatic implementations are only provided
-for types such as in the `std` library. All others *must* be manually
-implemented somehow.
+想要使用`std::fmt`格式化`traints`的所有类型都需要可打印(printable)的实现。
+自动实现仅提供给诸如`std`库里的类型。其他类型则*必须*想办法手工实现。
 
-The `fmt::Debug` `trait` makes this very straightforward. *All* types can
-`derive` (automatically create) the `fmt::Debug` implementation. This is
-not true for `fmt::Display` which must be manually implemented.
+`fmt::Debug` `trait` 使用起来非常简单。*所有* 类型都可以
+`derive` (自动创建) `fmt::Debug` 的实现. `fmt::Display`并非一定要手工实现。
 
 ```rust
-// This structure cannot be printed either with `fmt::Display` or
-// with `fmt::Debug`
+// 该结构体不能被`fmt::Display`和 `fmt::Debug`打印
 struct UnPrintable(i32);
 
-// The `derive` attribute automatically creates the implementation
-// required to make this `struct` printable with `fmt::Debug`.
+// `derive`属性会用`fmt::Debug`为该`结构体`自动创建必须的可打印实现。
 #[derive(Debug)]
 struct DebugPrintable(i32);
 ```
 
-All `std` library types automatically are printable with `{:?}` too:
+`std`标准库类型使用`{:?}`也可以自动实现可打印:
 
 {debug.play}
 
-So `fmt::Debug` definitely makes this printable but sacrifices some
-elegance. Manually implementing `fmt::Display` will fix that.
+所以`fmt::Debug` 肯定可以实现可打印，但是会失去一些优雅。手工实现`fmt::Display` 会解决这个问题。
 
-### See also
+### 更多参考
 
 [attributes][attributes], [`derive`][derive], [`std::fmt`][fmt],
-and [`struct`][structs]
+以及 [`struct`][structs]
 
 [attributes]: http://doc.rust-lang.org/reference.html#attributes
 [derive]: /trait/derive.html
 [fmt]: http://doc.rust-lang.org/std/fmt/
 [structs]: /custom_types/structs.html
-
