@@ -9,4 +9,4 @@ svn checkout ${ace_repository} ${ace_playpen_local}'/book/ace'
 cp ${ace_playpen_local}'/book/ace/mode-rust.js' ${ace_playpen_local}'/book/mode-rust.js'
 
 ln -sf ../book.json stage
-ln -sf ../examples/README.md stage
+ln -sf ../examples-cn/README.md stage

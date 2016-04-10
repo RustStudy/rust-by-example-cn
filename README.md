@@ -70,10 +70,10 @@ Each example has:
   `{ "id": "hello", "title": "Hello World", "children": null }`
 * some source file(s), e.g. [examples/hello/hello.rs][hello-rs]
 * an input markdown file, e.g.
-  [examples/hello/input.md][hello-md]
+  [examples-cn/hello/input.md][hello-md]
 
 When dealing with a child example, the path will have to include the id of its
-ancestors; e.g. `examples/variable/mut/input.md`, implies that a `mut` example
+ancestors; e.g. `examples-cn/variable/mut/input.md`, implies that a `mut` example
 lives under the `variable` example.
 
 ### Processing `input.md`
@@ -112,8 +112,7 @@ See LICENSE-APACHE and LICENSE-MIT for more details.
 [gitbook]: http://www.gitbook.io
 [gitbook-format]: https://github.com/GitbookIO/gitbook#book-format
 [main-rs]: src/main.rs
-[structure]: examples/structure.json
-[hello-folder]: examples/hello
-[hello-rs]: examples/hello/hello.rs
-[hello-md]: examples/hello/input.md
-
+[structure]: examples-cn/structure.json
+[hello-folder]: examples-cn/hello
+[hello-rs]: examples-cn/hello/hello.rs
+[hello-md]: examples-cn/hello/input.md

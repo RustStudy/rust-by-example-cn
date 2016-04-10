@@ -30,7 +30,7 @@ impl<'a, 'b> Markdown<'a, 'b> {
     fn new(number: &[usize], id: &'a str, title: &str, prefix: &'b str)
         -> Result<Markdown<'a, 'b>, String>
     {
-        let path_str = &format!("examples/{}/{}/input.md", prefix, id);
+        let path_str = &format!("examples-cn/{}/{}/input.md", prefix, id);
         let path = Path::new(path_str);
 
         let mut f = File::open(&path).unwrap();
@@ -67,7 +67,7 @@ impl<'a, 'b> Markdown<'a, 'b> {
                 Some(captures) => {
                     let src = captures.at(1).unwrap();
                     let input = format!("{{{}}}", src);
-                    let p = format!("examples/{}/{}/{}", prefix, id, src);
+                    let p = format!("examples-cn/{}/{}/{}", prefix, id, src);
 
                     let mut f = File::open(&Path::new(&p)).unwrap();
                     let mut s = String::new();
@@ -144,7 +144,7 @@ impl<'a, 'b> Markdown<'a, 'b> {
                     let srcbase = captures.at(1).unwrap();
                     let input = format!("{{{}.play}}", srcbase);
                     let src = format!("{}.rs", srcbase);
-                    let p = format!("examples/{}/{}/{}", prefix, id, src);
+                    let p = format!("examples-cn/{}/{}/{}", prefix, id, src);
 
                     let mut f = File::open(&Path::new(&p)).unwrap();
                     let mut s = String::new();

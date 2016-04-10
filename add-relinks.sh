@@ -4,7 +4,7 @@ for example in $(ls examples); do
   if [[ -d examples/${example} ]]; then
     new_html=http://rustbyexample.com/${example}.html
 
-    mkdir -p stage/_book/examples/${example}
+    mkdir -p stage/_book/examples-cn/${example}
     echo '<!DOCTYPE HTML>
 <html lang="en-US">
   <head>
@@ -14,6 +14,6 @@ for example in $(ls examples); do
   </head>
   <body>
   </body>
-</html>' > stage/_book/examples/${example}/README.html
+</html>' > stage/_book/examples-cn/${example}/README.html
   fi
 done

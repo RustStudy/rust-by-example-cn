@@ -1,14 +1,14 @@
-// This is a comment, and will be ignored by the compiler
-// You can test this code by clicking the "Run" button over there ->
-// or if prefer to use your keyboard, you can use the "Ctrl + Enter" shortcut
+// 这是注释，会被编译器忽略
+// 你可以点击按钮"Run"来测试这段代码
+// 如果你喜欢用键盘，你可以使用"Ctrl + Enter"
 
-// This code is editable, feel free to hack it!
-// You can always return to the original code by clicking the "Reset" button ->
+// 该代码是可编辑的，随意修改吧!
+// 通过点击按钮"Reset"可以恢复原来的代码
 
-// This is the main function
+// main 函数
 fn main() {
-    // The statements here will be executed when the compiled binary is called
+    // 当编译的二进制文件被调用的时候该语句会被执行
 
-    // Print text to the console
+    // 打印文本到控制台
     println!("Hello World!");
 }
