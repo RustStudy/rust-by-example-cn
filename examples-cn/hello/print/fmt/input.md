@@ -30,6 +30,7 @@ RGB (0, 0, 0) 0x000000
  * You can [pad with zeros to a width of 2][fmt_width] with `:02`.
 
 ### 更多参考
+
 [`std::fmt`][fmt]
 
 [argument_types]: http://doc.rust-lang.org/std/fmt/#argument-types

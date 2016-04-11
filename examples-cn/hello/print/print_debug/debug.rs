@@ -8,6 +8,7 @@ struct Structure(i32);
 struct Deep(Structure);
 
 fn main() {
+
     // `{:?}`用法于 `{}`相似。
     println!("{:?} months in a year.", 12);
     println!("{1:?} {0:?} is the {actor:?} name.",
