@@ -1,1 +1,0 @@
-This section contains a few examples of using closures in the `std` library.
