@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="1.2.3" data-basepath="../.." data-revision="1460345353391">
+    <div class="book" data-level="1.2.3" data-basepath="../.." data-revision="1460390592085">
     
 
 <div class="book-summary">
@@ -2856,21 +2856,18 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_4">
                     
                         <h3 id="123-formatting">1.2.3 Formatting</h3>
-<p>We&#39;ve seen that formatting is specified via a <em>format string</em>:</p>
+<p>我们已经见识过 <em>格式化字符串（format string）</em> 了:</p>
 <ul>
 <li><code>format!(&quot;{}&quot;, foo)</code> -&gt; <code>&quot;3735928559&quot;</code></li>
 <li><code>format!(&quot;0x{:X}&quot;, foo)</code> -&gt;
 <a href="https://en.wikipedia.org/wiki/Deadbeef#Magic_debug_values" target="_blank"><code>&quot;0xDEADBEEF&quot;</code></a></li>
 <li><code>format!(&quot;0o{:o}&quot;, foo)</code> -&gt; <code>&quot;0o33653337357&quot;</code></li>
 </ul>
-<p>The same variable (<code>foo</code>) can be formatted differently depending on which
-<em>argument type</em> is used: <code>X</code> vs <code>o</code> vs <em>unspecified</em>.</p>
-<p>This formatting functionality is implemented via traits, and there is one trait
-for each argument type. The most common formatting trait is <code>Display</code>, which
-handles cases where the argument type is left unspecified: <code>{}</code> for instance.</p>
+<p>同样的变量 (<code>foo</code>) 通过 <em>参数类型</em> 能被格式化为不同的格式。参数类型: <code>X</code> vs <code>o</code> vs <em>未指定（unspecified）</em>.</p>
+<p>格式化的功能是通过traits实现的，每个参数类型都有一个trait。最通用的格式化trait是<code>Display</code>，它处理的参数类型是 <em>未指定（unspecified）</em>: <code>{}</code>。</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
@@ -2928,17 +2925,16 @@ fn main() {
 <p>You can view a <a href="http://doc.rust-lang.org/std/fmt/#formatting-traits" target="_blank">full list of formatting traits</a> and their argument
 types in the <a href="http://doc.rust-lang.org/std/fmt/" target="_blank"><code>std::fmt</code></a> documentation.</p>
 <h3 id="activity">Activity</h3>
-<p>Add an implementation of the <code>fmt::Display</code> trait for the <code>Color</code> struct above
-so that the output displays as:</p>
+<p>为上面的<code>Color</code>结构体添加一个<code>fmt::Display</code> trait实现，以便于能输出下列结果:</p>
 <pre><code>RGB (128, 255, 90) 0x80FF5A
 RGB (0, 3, 254) 0x0003FE
 RGB (0, 0, 0) 0x000000
-</code></pre><p>Two hints if you get stuck:</p>
+</code></pre><p>两点提示:</p>
 <ul>
 <li>You <a href="http://doc.rust-lang.org/std/fmt/#argument-types" target="_blank">may need to list each color more than once</a>,</li>
 <li>You can <a href="http://doc.rust-lang.org/std/fmt/#width" target="_blank">pad with zeros to a width of 2</a> with <code>:02</code>.</li>
 </ul>
-<h3 id="see-also">See also</h3>
+<h3 id="">更多参考</h3>
 <p><a href="http://doc.rust-lang.org/std/fmt/" target="_blank"><code>std::fmt</code></a></p>
 
                     

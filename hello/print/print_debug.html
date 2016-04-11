@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../.." data-revision="1460345353391">
+    <div class="book" data-level="1.2.1" data-basepath="../.." data-revision="1460390592085">
     
 
 <div class="book-summary">
@@ -2856,7 +2856,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_4">
+                    <section class="normal" id="section-gitbook_2">
                     
                         <h3 id="121-debug">1.2.1 Debug</h3>
 <p>想要使用<code>std::fmt</code>格式化<code>traints</code>的所有类型都需要可打印(printable)的实现。
@@ -2874,29 +2874,29 @@
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
-<div id="editor">// Derive the &#96;fmt::Debug&#96; implementation for &#96;Structure&#96;. &#96;Structure&#96;
-// is a structure which contains a single &#96;i32&#96;.
+<div id="editor">// 从&#96;fmt::Debug&#96; 中导出（derive）实现。
+// &#96;Structure&#96;是包含了 单个&#96;i32&#96;类型参数的结构体。
 #[derive(Debug)]
 struct Structure(i32);
 
-// Put a &#96;Structure&#96; inside of the structure &#96;Deep&#96;. Make it printable
-// also.
+// 置于结构体&#96;Deep&#96;中的&#96;Structure&#96;也是可打印的。
 #[derive(Debug)]
 struct Deep(Structure);
 
 fn main() {
-    // Printing with &#96;{:?}&#96; is similar to with &#96;{}&#96;.
+
+    // &#96;{:?}&#96;用法于 &#96;{}&#96;相似。
     println!(&quot;{:?} months in a year.&quot;, 12);
     println!(&quot;{1:?} {0:?} is the {actor:?} name.&quot;,
              &quot;Slater&quot;,
              &quot;Christian&quot;,
              actor=&quot;actor&#39;s&quot;);
 
-    // &#96;Structure&#96; is printable!
+    // &#96;Structure&#96; 是可打印的!
     println!(&quot;Now {:?} will print!&quot;, Structure(3));
 
-    // The problem with &#96;derive&#96; is there is no control over how
-    // the results look. What if I want this to just show a &#96;7&#96;?
+    // 使用&#96;derive&#96;的问题是对结果如何显示没有控制权。
+    // 假如我这里想显示&#96;7&#96;呢?
     println!(&quot;Now {:?} will print!&quot;, Deep(Structure(7)));
 }</div>
 <div id="result"></div>
