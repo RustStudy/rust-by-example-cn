@@ -1,16 +1,13 @@
-We've seen that formatting is specified via a *format string*:
+我们已经见识过 *格式化字符串（format string）* 了:
 
 * `format!("{}", foo)` -> `"3735928559"`
 * `format!("0x{:X}", foo)` ->
   [`"0xDEADBEEF"`][deadbeef]
 * `format!("0o{:o}", foo)` -> `"0o33653337357"`
 
-The same variable (`foo`) can be formatted differently depending on which
-*argument type* is used: `X` vs `o` vs *unspecified*.
+同样的变量 (`foo`) 通过 *参数类型* 能被格式化为不同的格式。参数类型: `X` vs `o` vs *未指定（unspecified）*.
 
-This formatting functionality is implemented via traits, and there is one trait
-for each argument type. The most common formatting trait is `Display`, which
-handles cases where the argument type is left unspecified: `{}` for instance.
+格式化的功能是通过traits实现的，每个参数类型都有一个trait。最通用的格式化trait是`Display`，它处理的参数类型是 *未指定（unspecified）*: `{}`。
 
 {show.play}
 
@@ -18,19 +15,21 @@ You can view a [full list of formatting traits][fmt_traits] and their argument
 types in the [`std::fmt`][fmt] documentation.
 
 ### Activity
-Add an implementation of the `fmt::Display` trait for the `Color` struct above
-so that the output displays as:
+
+为上面的`Color`结构体添加一个`fmt::Display` trait实现，以便于能输出下列结果:
 
 ```
 RGB (128, 255, 90) 0x80FF5A
 RGB (0, 3, 254) 0x0003FE
 RGB (0, 0, 0) 0x000000
 ```
-Two hints if you get stuck:
+
+两点提示:
+
  * You [may need to list each color more than once][argument_types],
  * You can [pad with zeros to a width of 2][fmt_width] with `:02`.
 
-### See also
+### 更多参考
 [`std::fmt`][fmt]
 
 [argument_types]: http://doc.rust-lang.org/std/fmt/#argument-types
