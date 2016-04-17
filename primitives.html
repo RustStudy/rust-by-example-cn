@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="2" data-basepath="." data-revision="1460390592085">
+    <div class="book" data-level="2" data-basepath="." data-revision="1460864422121">
     
 
 <div class="book-summary">
@@ -2856,46 +2856,44 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_106">
+                    <section class="normal" id="section-gitbook_100">
                     
                         <h1 id="2-primitives">2 Primitives</h1>
-<p>Rust provides access to a wide variety of <code>primitives</code>. A sample includes:</p>
+<p>Rust提供种类繁多的基本类型。包括：</p>
 <ul>
-<li>signed integers: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code> and <code>isize</code> (pointer size)</li>
-<li>unsigned integers: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code> and <code>usize</code> (pointer size)</li>
-<li>floating point: <code>f32</code>, <code>f64</code></li>
-<li><code>char</code> Unicode scalar values like <code>&#39;a&#39;</code>, <code>&#39;α&#39;</code> and <code>&#39;∞&#39;</code> (4 bytes each)</li>
-<li><code>bool</code> either <code>true</code> or <code>false</code></li>
-<li>and the unit type <code>()</code>, whose only value is also <code>()</code></li>
-<li>arrays like <code>[1, 2, 3]</code></li>
-<li>tuples like <code>(1, true)</code></li>
+<li>符号整型： i8, i16, i32, i64 和 isize（指针大小）</li>
+<li>无符号整型： u8, u16, u32, u64 和 usize（指针大小）</li>
+<li>浮点数： f32, f64</li>
+<li>字符（char）： Unicode标量值，像&#39;a&#39;, &#39;α&#39; 和 &#39;∞&#39; (每个4字节)</li>
+<li>布尔值（bool）：true和false</li>
+<li>单元类型(unit type)： 仅有的值就是一对括号()</li>
+<li>数组(array):  [1, 2, 3]</li>
+<li>元组(tuple): (1, true)</li>
 </ul>
-<p>Variables can always be <em>type annotated</em>. Numbers may additionally be
-annotated via a <em>suffix</em> or <em>by default</em>. Integers default to <code>i32</code> and
-floats to <code>f64</code>.</p>
+<p>变量总是需要 <em>类型标注</em>。 可以通过后缀或默认都可以标注。整数默认为i32， 浮点数默认为f64。</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor">fn main() {
-    // Variables can be type annotated.
+    // 变量能被类型标注
     let logical: bool = true;
 
-    let a&#95;float: f64 = 1.0;  // Regular annotation
-    let an&#95;integer   = 5i32; // Suffix annotation
+    let a&#95;float: f64 = 1.0;  // 一般标注
+    let an&#95;integer   = 5i32; // 后缀标注 annotation
 
-    // Or a default will be used.
-    let default&#95;float   = 3.0; // &#96;f64&#96;
-    let default&#95;integer = 7;   // &#96;i32&#96;
+    // 不标注的话就用默认值
+    let default&#95;float   = 3.0; // 默认为&#96;f64&#96;
+    let default&#95;integer = 7;   // 默认为&#96;i32&#96;
 
-    let mut mutable = 12; // Mutable &#96;i32&#96;.
+    let mut mutable = 12; // 可变（Mutable） &#96;i32&#96;.
 
-    // Error! The type of a variable can&#39;t be changed
+    // Error! 该变量的类型不能被改变
     mutable = true;
 }</div>
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
+<h3 id="">更多参考:</h3>
 <p><a href="http://doc.rust-lang.org/std/" target="_blank">the <code>std</code> library</a></p>
 
                     

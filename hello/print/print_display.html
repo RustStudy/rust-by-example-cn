@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="1.2.2" data-basepath="../.." data-revision="1460390592085">
+    <div class="book" data-level="1.2.2" data-basepath="../.." data-revision="1460864422121">
     
 
 <div class="book-summary">
@@ -2856,40 +2856,34 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_5">
                     
                         <h3 id="122-display">1.2.2 Display</h3>
-<p><code>fmt::Debug</code> hardly looks compact and clean, so it is often advantageous to
-customize the output appearance. This is done by manually implementing
-<a href="http://doc.rust-lang.org/std/fmt/" target="_blank"><code>fmt::Display</code></a>, which uses the <code>{}</code> print marker. Implementing it
-looks like this:</p>
-<pre><code class="lang-rust"><span class="hljs-comment">// Import (via `use`) the `fmt` module to make it available.</span>
+<p><code>fmt::Debug</code> 看上去相当紧凑干净，它们实现定义输出很方便。它实际是通过<code>{}</code>打印标识实现的<a href="http://doc.rust-lang.org/std/fmt/" target="_blank"><code>fmt::Display</code></a>. 实现过程类似于下列代码:</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// 通过`use`导入`fmt`模块</span>
 <span class="hljs-keyword">use</span> std::fmt;
 
-<span class="hljs-comment">// Define a structure which `fmt::Display` will be implemented for. This is simply</span>
-<span class="hljs-comment">// a tuple struct containing an `i32` bound to the name `Structure`.</span>
+<span class="hljs-comment">//  定义将实现`fmt::Display`的结构体.</span>
+<span class="hljs-comment">// 这是一个简单包含`i32`类型参数的元组（tuple）结构体 `Structure`.</span>
 <span class="hljs-keyword">struct</span> Structure(<span class="hljs-keyword">i32</span>);
 
-<span class="hljs-comment">// In order to use the `{}` marker, the trait `fmt::Display` must be implemented</span>
-<span class="hljs-comment">// manually for the type.</span>
+<span class="hljs-comment">// 为了使用`{}`, 一定要为该类型实现`fmt::Display` trait</span>
+
 <span class="hljs-keyword">impl</span> fmt::Display <span class="hljs-keyword">for</span> Structure {
-    <span class="hljs-comment">// This trait requires `fmt` with this exact signature.</span>
+    <span class="hljs-comment">// 该trait必须显式指定`fmt`</span>
     <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">fmt</span></span>(&amp;<span class="hljs-keyword">self</span>, f: &amp;<span class="hljs-keyword">mut</span> fmt::Formatter) -&gt; fmt::Result {
-        <span class="hljs-comment">// Write strictly the first element into the supplied output</span>
-        <span class="hljs-comment">// stream: `f`. Returns `fmt::Result` which indicates whether the</span>
-        <span class="hljs-comment">// operation succeeded or failed. Note that `write!` uses syntax which</span>
-        <span class="hljs-comment">// is very similar to `println!`.</span>
+        <span class="hljs-comment">// 把输出流写入到第一个元素中: `f`.</span>
+        <span class="hljs-comment">// 返回`fmt::Result`标示操作是否成功</span>
+        <span class="hljs-comment">// 注意`write!`的用法和`println!`非常类型。</span>
         <span class="hljs-built_in">write!</span>(f, <span class="hljs-string">"{}"</span>, <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>)
     }
 }
 </code></pre>
-<p><code>fmt::Display</code> may be cleaner than <code>fmt::Debug</code> but this presents
-a problem for the <code>std</code> library. How should ambiguous types be displayed?
-For example, if the <code>std</code> library implemented a single style for all
-<code>Vec&lt;T&gt;</code>, what style should it be? Either of these two?</p>
+<p><code>fmt::Display</code> 可能比<code>fmt::Debug</code>更干净，但是这凸显了<code>std</code>的一个问题. 该如何显示不明确的类型呢？
+例如，如果<code>std</code> 库为所有的<code>Vec&lt;T&gt;</code>分别实现了一个单独的类型， 该如何显示？只显示下列其中一种，还是两种都显示？</p>
 <ul>
-<li><code>Vec&lt;path&gt;</code>: <code>/:/etc:/home/username:/bin</code> (split on <code>:</code>)</li>
-<li><code>Vec&lt;number&gt;</code>: <code>1,2,3</code> (split on <code>,</code>)</li>
+<li><code>Vec&lt;path&gt;</code>: <code>/:/etc:/home/username:/bin</code> (用<code>:</code>分隔)</li>
+<li><code>Vec&lt;number&gt;</code>: <code>1,2,3</code> (<code>,</code>分隔)</li>
 </ul>
 <p>No, because there is no ideal style for all types and the <code>std</code> library
 doesn&#39;t presume to dictate one. <code>fmt::Display</code> is not implemented for <code>Vec&lt;T&gt;</code>
@@ -2900,29 +2894,28 @@ generic cases.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
-<div id="editor">use std::fmt; // Import &#96;fmt&#96;
+<div id="editor">use std::fmt; // 导入 &#96;fmt&#96;
 
-// A structure holding two numbers. &#96;Debug&#96; will be derived so the results can
-// be contrasted with &#96;Display&#96;.
+// derive &#96;Debug&#96;为了和使用&#96;Display&#96;形成对比
 #[derive(Debug)]
 struct MinMax(i64, i64);
 
-// Implement &#96;Display&#96; for &#96;MinMax&#96;.
+// 为 &#96;MinMax&#96;实现&#96;Display&#96;.
 impl fmt::Display for MinMax {
     fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
-        // Use &#96;self.number&#96; to refer to each positional data point.
+        // 用&#96;self.number&#96;引用每一个位置的数据
         write!(f, &quot;({}, {})&quot;, self.0, self.1)
     }
 }
 
-// Define a structure where the fields are nameable for comparison.
+// 定义一个用于比对的结构体
 #[derive(Debug)]
 struct Point2 {
     x: f64,
     y: f64,
 }
 
-// Similarly, implement for Point2
+// 同样，为Point2实现Display
 impl fmt::Display for Point2 {
     fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
         // Customize so only &#96;x&#96; and &#96;y&#96; are denoted.
@@ -2950,8 +2943,9 @@ fn main() {
     println!(&quot;Display: {}&quot;, point);
     println!(&quot;Debug: {:?}&quot;, point);
 
-    // Error. Both &#96;Debug&#96; and &#96;Display&#96; were implemented but &#96;{:b}&#96;
-    // requires &#96;fmt::Binary&#96; to be implemented. This will not work.
+    // Error.
+    // &#96;Debug&#96; 和 &#96;Display&#96;都能被实现，但是&#96;{:b}&#96;需要实现&#96;fmt::Binary&#96;
+    //下面这行将不会被执行
     // println!(&quot;What does Point2D look like in binary: {:b}?&quot;, point);
 }</div>
 <div id="result"></div>
