@@ -1,10 +1,10 @@
-The `use` declaration can be used so manual scoping isn't needed:
+`use`声明无需手工指定作用域:
 
 {use.play}
 
-### See also:
+###  更多参考:
 
-[`match`][match] and [`use`][use] 
+[`match`][match] and [`use`][use]
 
 [use]: /mod/use.html
 [match]: /flow_control/match.html

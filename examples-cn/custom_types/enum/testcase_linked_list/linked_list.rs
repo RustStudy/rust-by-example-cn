@@ -1,15 +1,15 @@
 use List::*;
 
 enum List {
-    // Cons: Tuple struct that wraps an element and a pointer to the next node
+    // Cons: 将元素和下个节点的指针包装在元组结构体中
     Cons(u32, Box<List>),
-    // Nil: A node that signifies the end of the linked list
+    // Nil: 用来标识链表最终节点
     Nil,
 }
 
 // Methods can be attached to an enum
 impl List {
-    // Create an empty list
+    // 创建一个空链表
     fn new() -> List {
         // `Nil` has type `List`
         Nil

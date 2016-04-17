@@ -1,8 +1,8 @@
-`enum` can also be used as C-like enums.
+`enum` 也能像C语言那样使用枚举 enums.
 
 {c_like.play}
 
-### See also:
+### 更多参考:
 
 [casting][cast]
 

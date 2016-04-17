@@ -1,8 +1,8 @@
-A common use for `enums` is to create a linked-list:
+ `enums`一般用来创建链表(linked-list):
 
 {linked_list.play}
 
-### See also:
+### 更多参考:
 
 [`Box`][box] and [methods][methods]
 
