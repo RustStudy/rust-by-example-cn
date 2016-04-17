@@ -1,37 +1,31 @@
-`fmt::Debug` hardly looks compact and clean, so it is often advantageous to
-customize the output appearance. This is done by manually implementing
-[`fmt::Display`][fmt], which uses the `{}` print marker. Implementing it
-looks like this:
+`fmt::Debug` 看上去相当紧凑干净，它们实现定义输出很方便。它实际是通过`{}`打印标识实现的[`fmt::Display`][fmt]. 实现过程类似于下列代码:
 
 ```rust
-// Import (via `use`) the `fmt` module to make it available.
+// 通过`use`导入`fmt`模块
 use std::fmt;
 
-// Define a structure which `fmt::Display` will be implemented for. This is simply
-// a tuple struct containing an `i32` bound to the name `Structure`.
+//  定义将实现`fmt::Display`的结构体.
+// 这是一个简单包含`i32`类型参数的元组（tuple）结构体 `Structure`.
 struct Structure(i32);
 
-// In order to use the `{}` marker, the trait `fmt::Display` must be implemented
-// manually for the type.
+// 为了使用`{}`, 一定要为该类型实现`fmt::Display` trait
+
 impl fmt::Display for Structure {
-    // This trait requires `fmt` with this exact signature.
+    // 该trait必须显式指定`fmt`
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // Write strictly the first element into the supplied output
-        // stream: `f`. Returns `fmt::Result` which indicates whether the
-        // operation succeeded or failed. Note that `write!` uses syntax which
-        // is very similar to `println!`.
+        // 把输出流写入到第一个元素中: `f`.
+        // 返回`fmt::Result`标示操作是否成功
+        // 注意`write!`的用法和`println!`非常类型。
         write!(f, "{}", self.0)
     }
 }
 ```
 
-`fmt::Display` may be cleaner than `fmt::Debug` but this presents
-a problem for the `std` library. How should ambiguous types be displayed?
-For example, if the `std` library implemented a single style for all
-`Vec<T>`, what style should it be? Either of these two?
+`fmt::Display` 可能比`fmt::Debug`更干净，但是这凸显了`std`的一个问题. 该如何显示不明确的类型呢？
+例如，如果`std` 库为所有的`Vec<T>`分别实现了一个单独的类型， 该如何显示？只显示下列其中一种，还是两种都显示？
 
-* `Vec<path>`: `/:/etc:/home/username:/bin` (split on `:`)
-* `Vec<number>`: `1,2,3` (split on `,`)
+* `Vec<path>`: `/:/etc:/home/username:/bin` (用`:`分隔)
+* `Vec<number>`: `1,2,3` (`,`分隔)
 
 No, because there is no ideal style for all types and the `std` library
 doesn't presume to dictate one. `fmt::Display` is not implemented for `Vec<T>`

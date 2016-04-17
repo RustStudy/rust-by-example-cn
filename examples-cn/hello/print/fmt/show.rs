@@ -9,13 +9,12 @@ struct City {
 }
 
 impl Display for City {
-    // `f` is a buffer, this method must write the formatted string into it
+    // `f`是一个缓冲, 此方法一定会把格式化后的字符串写入其中
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
         let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
 
-        // `write!` is like `format!`, but it will write the formatted string
-        // into a buffer (the first argument)
+        // `write!` 类似于`format!`, 但是它会把格式化后的字符串写入缓冲中(第一个参数)
         write!(f, "{}: {:.3}°{} {:.3}°{}",
                self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
     }
@@ -41,8 +40,7 @@ fn main() {
         Color { red: 0, green: 3, blue: 254 },
         Color { red: 0, green: 0, blue: 0 },
     ].iter() {
-        // Switch this to use {} once you've added an implementation
-        // for fmt::Display
+        // 一旦你实现了fmt::Display就可以选择使用{}了
         println!("{:?}", *color)
     }
 }

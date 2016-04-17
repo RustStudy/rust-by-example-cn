@@ -1,10 +1,7 @@
-An array is a collection of objects of the same type `T`, stored in contiguous
-memory. Arrays are created using brackets `[]`, and their size, which is known
-at compile time, is part of their type signature `[T; size]`.
+数组是存储在连续内存中相同类型`T`的对象集合.数组使用中括号来创建, 并且它们的大小、类型签名都是在编译期可知的 `[T; size]`.
 
-Slices are similar to arrays, but their size is not known at compile time.
-Instead, a slice is a two-word object, the first word is a pointer to the data,
-and the second word is the length of the slice. Slices can be used to borrow a
-section of an array, and have the type signature `&[T]`.
+Slices和数组相似，但是它们的大小在编译期是不可知的。
+一个slice是一个“双子”对象，包含两个元素，第一个元素是指向slice数据的指针，另一个是该slice的长度。
+Slices被用于出借数组片段，其类型签名是`&[T]`.
 
 {array.play}
