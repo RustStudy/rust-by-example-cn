@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="3.2.1" data-basepath="../.." data-revision="1460864422121">
+    <div class="book" data-level="3.2.1" data-basepath="../.." data-revision="1460871115114">
     
 
 <div class="book-summary">
@@ -2856,14 +2856,14 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_13">
                     
                         <h3 id="321-use">3.2.1 use</h3>
-<p>The <code>use</code> declaration can be used so manual scoping isn&#39;t needed:</p>
+<p><code>use</code>声明无需手工指定作用域:</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
-<div id="editor">// An attribute to hide warnings for unused code.
+<div id="editor">// 该属性隐藏无用代码警告
 #![allow(dead&#95;code)]
 
 enum Status {
@@ -2877,25 +2877,24 @@ enum Work {
 }
 
 fn main() {
-    // Explicitly &#96;use&#96; each name so they are available without
-    // manual scoping.
+    // 显式使用&#96;use&#96;，所以无需手工指定作用域
     use Status::{Poor, Rich};
-    // Automatically &#96;use&#96; each name inside &#96;Work&#96;.
+    // 为&#96;Work&#96;中的每个name都自动的使用了 &#96;use&#96;
     use Work::&#42;;
 
-    // Equivalent to &#96;Status::Poor&#96;.
+    // 执行 &#96;Status::Poor&#96;.
     let status = Poor;
-    // Equivalent to &#96;Work::Civilian&#96;.
+    // 执行&#96;Work::Civilian&#96;.
     let work = Civilian;
 
     match status {
-        // Note the lack of scoping because of the explicit &#96;use&#96; above.
+        // 注意，这里因为上面使用了&#96;use&#96;，没有指定作用域，比如&quot;Status::Rich&quot;
         Rich =&gt; println!(&quot;The rich have lots of money!&quot;),
         Poor =&gt; println!(&quot;The poor have no money...&quot;),
     }
 
     match work {
-        // Note again the lack of scoping.
+        // 同样没有指定作用域
         Civilian =&gt; println!(&quot;Civilians work!&quot;),
         Soldier  =&gt; println!(&quot;Soldiers fight!&quot;),
     }
@@ -2903,8 +2902,8 @@ fn main() {
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
-<p><a href="/flow_control/match.html"><code>match</code></a> and <a href="/mod/use.html"><code>use</code></a> </p>
+<h3 id="">更多参考:</h3>
+<p><a href="/flow_control/match.html"><code>match</code></a> and <a href="/mod/use.html"><code>use</code></a></p>
 
                     
                     </section>

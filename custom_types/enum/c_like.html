@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="3.2.2" data-basepath="../.." data-revision="1460864422121">
+    <div class="book" data-level="3.2.2" data-basepath="../.." data-revision="1460871115114">
     
 
 <div class="book-summary">
@@ -2856,24 +2856,24 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h3 id="322-c-like">3.2.2 C-like</h3>
-<p><code>enum</code> can also be used as C-like enums.</p>
+<p><code>enum</code> 也能像C语言那样使用枚举 enums.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor">// An attribute to hide warnings for unused code.
 #![allow(dead&#95;code)]
 
-// enum with implicit discriminator (starts at 0)
+// 使用隐式辨别值(discriminator)(从 0 开始)
 enum Number {
     Zero,
     One,
     Two,
 }
 
-// enum with explicit discriminator
+// 使用显式指定辨别值(discriminator)
 enum Color {
     Red = 0xff0000,
     Green = 0x00ff00,
@@ -2881,17 +2881,18 @@ enum Color {
 }
 
 fn main() {
-    // &#96;enums&#96; can be cast as integers.
+    // &#96;enums&#96;能被作为整数计算.
     println!(&quot;zero is {}&quot;, Number::Zero as i32);
     println!(&quot;one is {}&quot;, Number::One as i32);
 
+    // 这里可以尝试使用&#96;use&#96;关键字来省略&#39;Color::&#39;
     println!(&quot;roses are #{:06x}&quot;, Color::Red as i32);
     println!(&quot;violets are #{:06x}&quot;, Color::Blue as i32);
 }</div>
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
+<h3 id="">更多参考:</h3>
 <p><a href="/cast.html">casting</a></p>
 
                     

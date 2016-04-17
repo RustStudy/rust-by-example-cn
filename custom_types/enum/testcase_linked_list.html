@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="3.2.3" data-basepath="../.." data-revision="1460864422121">
+    <div class="book" data-level="3.2.3" data-basepath="../.." data-revision="1460871115114">
     
 
 <div class="book-summary">
@@ -2856,25 +2856,25 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_25">
+                    <section class="normal" id="section-gitbook_23">
                     
                         <h3 id="323-testcase-linked-list">3.2.3 Testcase: linked-list</h3>
-<p>A common use for <code>enums</code> is to create a linked-list:</p>
+<p> <code>enums</code>一般用来创建链表(linked-list):</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor">use List::&#42;;
 
 enum List {
-    // Cons: Tuple struct that wraps an element and a pointer to the next node
+    // Cons: 将元素和下个节点的指针包装在元组结构体中
     Cons(u32, Box&lt;List&gt;),
-    // Nil: A node that signifies the end of the linked list
+    // Nil: 用来标识链表最终节点
     Nil,
 }
 
 // Methods can be attached to an enum
 impl List {
-    // Create an empty list
+    // 创建一个空链表
     fn new() -&gt; List {
         // &#96;Nil&#96; has type &#96;List&#96;
         Nil
@@ -2932,7 +2932,7 @@ fn main() {
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
+<h3 id="">更多参考:</h3>
 <p><a href="/std/box.html"><code>Box</code></a> and <a href="/fn/methods.html">methods</a></p>
 
                     
